@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name | Mathematics & Research</title>
+<meta name="description" content="Personal academic portfolio of a mathematics student at IIT Madras.">
+<style>
+:root {
+  --bg:#f7f7f2; --ink:#252a25; --muted:#687067;
+  --accent:#58765d; --line:#dedfd6; --card:#fffef9;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:85px}
+body {margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.75 Arial, sans-serif}
+a {color:inherit}
+header {position:sticky;top:0;background:var(--bg);
+  border-bottom:1px solid var(--line);z-index:5}
+nav {max-width:1050px;margin:auto;padding:18px 24px;
+  display:flex;justify-content:space-between;align-items:center}
+.logo {font-size:24px;font-weight:bold;text-decoration:none}
+.logo span {color:var(--accent)}
+nav div {display:flex;gap:22px;flex-wrap:wrap}
+nav div a {font-size:14px;text-decoration:none;color:var(--muted)}
+main {max-width:1050px;margin:auto;padding:0 24px}
+section {padding:85px 0;border-bottom:1px solid var(--line)}
+.hero {min-height:570px;display:grid;grid-template-columns:1.2fr .8fr;
+  gap:45px;align-items:center}
+.eyebrow {font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);font-weight:bold}
+h1 {font-size:clamp(43px,7vw,76px);line-height:1.08;
+  letter-spacing:-3px;margin:20px 0}
+h2 {font-size:clamp(30px,5vw,46px);line-height:1.2;
+  letter-spacing:-1.5px}
+h1 em,h2 em {font-family:Georgia,serif;font-weight:normal}
+p {color:var(--muted)}
+.intro {font-size:18px;max-width:590px}
+.button {display:inline-block;padding:12px 18px;background:var(--ink);
+  color:white;text-decoration:none;margin:12px 12px 0 0}
+.panel {background:var(--card);border:1px solid var(--line);
+  padding:28px}
+.panel h3 {margin-top:8px}
+.math {font:52px Georgia,serif;color:var(--accent);
+  text-align:center;padding:30px 0}
+.tags {display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span {border:1px solid var(--line);padding:3px 9px;
+  font-size:12px;color:var(--muted)}
+.grid {display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project {padding:25px 0;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:90px 1fr;gap:20px}
+.number {font:12px monospace;color:var(--accent)}
+footer {max-width:1050px;margin:auto;padding:30px 24px;
+  display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.small {font-size:13px}
+@media(max-width:720px) {
+  nav {align-items:flex-start;gap:15px}
+  nav div {gap:10px}
+  .hero {grid-template-columns:1fr;padding-top:55px;gap:20px}
+  section {padding:60px 0}
+  .grid {grid-template-columns:1fr}
+  .project {grid-template-columns:55px 1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<nav>
+  <a class="logo" href="#home">YN<span>.</span></a>
+  <div>
+    <a href="#about">About</a>
+    <a href="#interests">Interests</a>
+    <a href="#projects">Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <p class="eyebrow">Mathematics · Computing · Research</p>
+    <h1>Curious about the <em>mathematics</em> behind things.</h1>
+    <p class="intro">
+      I'm <strong>Your Name</strong>, a first-year BS Mathematics
+      student at the Indian Institute of Technology Madras.
+      I'm exploring mathematics, scientific computing, and
+      their connections to artificial intelligence.
+    </p>
+    <a class="button" href="#projects">Explore my work ↗</a>
+    <a href="#about">About me ↓</a>
+    <p class="small">IIT Madras · Chennai, India</p>
+  </div>
+  <div class="panel">
+    <p class="eyebrow">My current learning map</p>
+    <div class="math">∑ &nbsp; ∫ &nbsp; λ</div>
+    <h3>Ideas I'm exploring</h3>
+    <p>01 — Linear algebra and mathematical proofs</p>
+    <p>02 — Probability and combinatorics</p>
+    <p>03 — Python and scientific computing</p>
+    <p>04 — Mathematical foundations of AI</p>
+  </div>
+</section>
+
+<section id="about">
+  <p class="eyebrow">01 / About me</p>
+  <h2>Learning how to <em>think clearly.</em></h2>
+  <p class="intro">
+    I enjoy understanding ideas from first principles:
+    not only how a method works, but why it works and
+    where else it might be useful.
+  </p>
+  <p>
+    I'm beginning my academic journey in mathematics at IIT Madras.
+    Alongside my coursework, I'm building programming foundations
+    and exploring how mathematical thinking can be applied to
+    computational problems and AI.
+  </p>
+  <p>
+    This website is my evolving notebook: a place to document
+    projects, explain concepts, share useful resources, and record
+    questions worth investigating. My interests will evolve as I learn.
+  </p>
+</section>
+
+<section id="interests">
+  <p class="eyebrow">02 / Research interests</p>
+  <h2>Questions worth <em>following.</em></h2>
+  <div class="grid">
+    <article class="panel">
+      <div class="math">ℝⁿ</div>
+      <h3>Mathematics</h3>
+      <p>Linear algebra, analysis, probability, combinatorics,
+      number theory, and the beauty of mathematical proofs.</p>
+      <div class="tags"><span>Proofs</span><span>Structures</span></div>
+    </article>
+    <article class="panel">
+      <div class="math">⌘</div>
+      <h3>Scientific computing</h3>
+      <p>Using code to investigate mathematical ideas, approximate
+      solutions, visualise systems, and experiment with algorithms.</p>
+      <div class="tags"><span>Python</span><span>Numerical methods</span></div>
+    </article>
+    <article class="panel">
+      <div class="math">∿</div>
+      <h3>AI and machine learning</h3>
+      <p>Exploring optimisation, probability, learning algorithms,
+      and the mathematical foundations of intelligent systems.</p>
+      <div class="tags"><span>AI</span><span>Optimisation</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="eyebrow">03 / Selected work</p>
+  <h2>Small steps, <em>real work.</em></h2>
+  <p>I'll add links to repositories, demonstrations, and results as
+  I complete projects.</p>
+
+  <article class="project">
+    <div class="number">PROJECT 01</div>
+    <div>
+      <h3>Scientific computing notebook</h3>
+      <p>A collection of computational experiments connecting
+      mathematical concepts with Python and numerical methods.</p>
+      <div class="tags"><span>Learning in progress</span><span>Python</span></div>
+    </div>
+  </article>
+  <article class="project">
+    <div class="number">PROJECT 02</div>
+    <div>
+      <h3>Visual explorations in linear algebra</h3>
+      <p>A future collection of visual explanations of vectors,
+      transformations, eigenvalues, and geometric intuition.</p>
+      <div class="tags"><span>Planned</span><span>Mathematics</span></div>
+    </div>
+  </article>
+  <article class="project">
+    <div class="number">PROJECT 03</div>
+    <div>
+      <h3>Exploring a research question</h3>
+      <p>A project to develop after reading papers, discussing ideas
+      with mentors, and identifying a focused research question.</p>
+      <div class="tags"><span>Planned</span><span>Research</span></div>
+    </div>
+  </article>
+</section>
+
+<section id="writing">
+  <p class="eyebrow">04 / Notes and writing</p>
+  <h2>A notebook for <em>curious minds.</em></h2>
+  <p>I'd like to write about concepts I'm learning, mathematical
+  intuition, useful resources, and the process of building things.</p>
+  <div class="panel">
+    <p>Possible first articles</p>
+    <p>→ What does a linear transformation really do?</p>
+    <p>→ From a mathematical idea to a Python experiment</p>
+    <p>→ How I'm learning to read research papers</p>
+    <p class="small">These are ideas for future articles, not published work.</p>
+  </div>
+</section>
+
+<section id="cv">
+  <p class="eyebrow">05 / Academic profile</p>
+  <h2>Building the <em>foundations.</em></h2>
+  <p>
+    As I gain experience, I'll add selected coursework, completed
+    projects, research experience, competitions, and achievements.
+  </p>
+  <p>You can add a link to your CV here once you have a PDF ready.</p>
+</section>
+
+<section id="contact">
+  <p class="eyebrow">06 / Contact</p>
+  <h2>Let's exchange <em>ideas.</em></h2>
+  <p>If you're interested in mathematics, computing, or AI,
+  I'd be happy to connect.</p>
+  <p>
+    Email: <a href="mailto:YOUR-EMAIL@example.com">YOUR-EMAIL@example.com</a>
+  </p>
+  <p>
+    GitHub: <a href="https://github.com/YOUR-USERNAME">Your GitHub profile</a>
+  </p>
+  <p>
+    LinkedIn: <a href="https://www.linkedin.com/">Your LinkedIn profile</a>
+  </p>
+</section>
+</main>
+
+<footer>
+  <a class="logo" href="#home">YN<span>.</span></a>
+  <span class="small">Made with curiosity in Chennai.</span>
+  <span class="small">© <span id="year"></span> Your Name</span>
+</footer>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
