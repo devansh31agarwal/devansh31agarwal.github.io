@@ -5,28 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Devansh Agarwal</title>
 <meta name="description" content="Devansh Agarwal, first-year student of BS Mathematics at the Indian Institute of Technology Madras.">
-<meta name="theme-color" content="#14383E">
+<meta name="theme-color" content="#0B1730">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
 <style>
   :root {
-    --paper: #F2F4F3;
-    --ink: #1D2B2E;
-    --muted: #596A6C;
-    --teal: #1B4D54;
-    --teal-deep: #14383E;
-    --teal-line: rgba(27, 77, 84, 0.18);
-    --brass: #86662A;
-    --brass-light: #E3C07A;
-    --rail-text: #B9CCCA;
-    --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --navy: #0B1730;
+    --navy-soft: #13254A;
+    --navy-text: #12264D;
+    --paper: #F4F6FA;
+    --tint: #E7EEF3;
+    --ink: #172033;
+    --muted: #586377;
+    --on-navy: #D3DBEA;
+    --on-navy-soft: #AEBBD3;
+    --gold: #E2B861;
+    --gold-ink: #7F5F17;
+    --teal: #5CC8C2;
+    --teal-ink: #167A7A;
+    --line: rgba(18, 38, 77, 0.16);
+    --line-navy: rgba(211, 219, 234, 0.2);
+    --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
     --sans: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
 
   body {
     margin: 0;
@@ -41,186 +51,319 @@
   a { color: inherit; }
 
   :focus-visible {
-    outline: 2px solid var(--brass);
+    outline: 2px solid var(--gold);
     outline-offset: 3px;
   }
 
-  .layout {
-    display: grid;
-    grid-template-columns: minmax(17rem, 22vw) 1fr;
-    min-height: 100vh;
+  .wrap {
+    width: 100%;
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 3rem);
   }
 
-  /* ---------- Left rail ---------- */
-  .rail {
+  /* ---------- Top navigation ---------- */
+  .topbar {
     position: sticky;
     top: 0;
-    height: 100vh;
-    background: var(--teal-deep);
-    color: var(--rail-text);
+    z-index: 50;
+    background: rgba(11, 23, 48, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-navy);
+  }
+
+  .topbar .wrap {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 3rem;
-    padding: 2.5rem 2rem;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 4rem;
   }
 
-  .portrait {
-    margin: 0;
-    width: min(100%, 13.5rem);
-    aspect-ratio: 3 / 4;
-    border-radius: 999px 999px 0 0;
-    overflow: hidden;
-    outline: 1px solid var(--brass-light);
-    outline-offset: 9px;
-    background: #0e2a2f;
+  .mark {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  .portrait img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 24%;
+  .mark:hover {
+    background: var(--gold);
+    color: var(--navy);
   }
 
-  .rail-nav ul {
+  .topnav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+    gap: clamp(1rem, 2.6vw, 2.25rem);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
   }
 
-  .rail-nav a {
-    display: flex;
-    align-items: center;
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 1.3rem;
-    line-height: 1.5;
+  .topnav ul::-webkit-scrollbar { display: none; }
+
+  .topnav a {
+    position: relative;
+    display: block;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--on-navy-soft);
     text-decoration: none;
-    color: var(--rail-text);
     transition: color 0.2s ease;
   }
 
-  .rail-nav a::before {
+  .topnav a::after {
     content: "";
-    display: inline-block;
-    width: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     height: 1px;
-    margin-right: 0;
-    background: var(--brass-light);
-    transition: width 0.25s ease, margin-right 0.25s ease;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
   }
 
-  .rail-nav a:hover,
-  .rail-nav a.is-current { color: var(--brass-light); }
+  .topnav a:hover,
+  .topnav a.is-current { color: var(--gold); }
 
-  .rail-nav a.is-current::before {
-    width: 1.3rem;
-    margin-right: 0.7rem;
-  }
+  .topnav a:hover::after,
+  .topnav a.is-current::after { transform: scaleX(1); }
 
-  /* ---------- Main column ---------- */
-  .main {
-    padding: 0 clamp(1.5rem, 5vw, 5rem);
-    max-width: 66rem;
-  }
-
-  .intro {
-    min-height: min(80vh, 48rem);
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    min-height: min(calc(100svh - 4rem), 52rem);
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 6rem 0 5rem;
+    align-items: center;
+    background-color: var(--navy);
+    background-image:
+      linear-gradient(rgba(174, 187, 211, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(174, 187, 211, 0.05) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    color: var(--on-navy);
   }
 
-  .intro h1 {
+  .plot {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 64%;
+    pointer-events: none;
+  }
+
+  .plot .axis { stroke: rgba(174, 187, 211, 0.3); stroke-width: 1; }
+  .plot .band { fill: rgba(92, 200, 194, 0.08); }
+  .plot .fit {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.6;
+    stroke-opacity: 0.75;
+  }
+  .plot .pt { fill: var(--teal); opacity: 0.5; }
+
+  .hero .wrap { position: relative; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 3rem;
+    padding: 4.5rem 0 5rem;
+  }
+
+  .hero-name {
     margin: 0;
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(3rem, 8vw, 6.25rem);
-    line-height: 1.02;
-    letter-spacing: -0.01em;
-    color: var(--teal);
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(3rem, 7.2vw, 6rem);
+    line-height: 1.04;
+    letter-spacing: -0.012em;
+    color: #EEF2F7;
   }
 
-  .intro .affiliation {
+  .hero-name .word { white-space: nowrap; }
+
+  .hero-name .ch {
+    display: inline-block;
+    text-align: center;
+  }
+
+  .hero-name .ch.is-scrambling { color: var(--gold); }
+
+  html.js .hero-name:not(.is-live) {
+    opacity: 0;
+    animation: name-fallback 0.01s 3s forwards;
+  }
+
+  .affiliation {
     margin: 1.75rem 0 0;
-    font-size: 1.125rem;
-    color: var(--muted);
+    font-size: 1.15rem;
+    color: var(--on-navy-soft);
   }
 
-  .intro .creed {
+  .creed {
+    position: relative;
     margin: 2.75rem 0 0;
     padding-top: 1.75rem;
-    position: relative;
-    font-family: var(--serif);
+    font-family: var(--display);
     font-style: italic;
     font-size: 1.9rem;
     line-height: 1.3;
-    color: var(--teal);
+    color: var(--gold);
   }
 
-  .intro .creed::before {
+  .creed::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 3rem;
+    width: 3.25rem;
     height: 1px;
-    background: var(--brass);
+    background: var(--gold);
   }
+
+  /* Portrait inside a cipher disc */
+  .portrait-wrap {
+    position: relative;
+    justify-self: center;
+    width: min(100%, 26rem);
+    aspect-ratio: 1;
+  }
+
+  .portrait-wrap svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .portrait-photo {
+    position: absolute;
+    left: 22%;
+    top: 22%;
+    width: 56%;
+    height: 56%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    box-shadow: 0 0 0 1px rgba(226, 184, 97, 0.55);
+    background: var(--navy-soft);
+  }
+
+  .disc .rule { fill: none; stroke: var(--gold); stroke-opacity: 0.5; stroke-width: 1; }
+  .disc .tick { stroke: var(--gold); stroke-opacity: 0.8; stroke-width: 1; }
+  .disc .letters-outer {
+    fill: var(--gold);
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .disc .letters-inner {
+    fill: var(--on-navy-soft);
+    font-family: var(--display);
+    font-size: 12px;
+    opacity: 0.75;
+  }
+
+  .ring-outer {
+    transform-origin: 210px 210px;
+    transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+
+  .portrait-wrap:hover .ring-outer { transform: rotate(13.846deg); }
+
+  /* ---------- Bands and sections ---------- */
+  .band { padding: 5.5rem 0; }
+  .band-paper { background: var(--paper); }
+  .band-tint { background: var(--tint); }
+  .band-navy { background: var(--navy); color: var(--on-navy); }
 
   .part {
     display: grid;
-    grid-template-columns: 11rem 1fr;
-    column-gap: 2.5rem;
-    padding: 4.5rem 0;
-    border-top: 1px solid var(--teal-line);
+    grid-template-columns: 12rem 1fr;
+    column-gap: 3rem;
   }
 
   .part h2 {
     margin: 0;
-    font-family: var(--serif);
+    font-family: var(--display);
     font-style: italic;
     font-weight: 400;
-    font-size: 1.9rem;
+    font-size: 2.15rem;
     line-height: 1.2;
-    color: var(--teal);
+    color: var(--navy-text);
   }
 
+  .band-navy .part h2 { color: var(--gold); }
+
   .part .body {
-    max-width: 38rem;
     min-width: 0;
+    max-width: 40rem;
   }
 
   .part .body p { margin: 0 0 1.25rem; }
   .part .body p:last-child { margin-bottom: 0; }
 
+  .lead-in { margin-bottom: 2.25rem; }
+
   /* Mathematical interests */
-  .domains { margin: 0; }
+  .domains {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
-  .domains dt {
-    font-family: var(--serif);
-    font-size: 2.25rem;
+  .domains li {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    column-gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .domains li:last-child { border-bottom: 1px solid var(--line); }
+
+  .glyph {
+    width: 4.5rem;
+    height: 4.5rem;
+    color: var(--teal-ink);
+  }
+
+  .glyph .accent { stroke: var(--gold-ink); }
+
+  .domains h3 {
+    margin: 0;
+    font-family: var(--display);
     font-weight: 400;
-    line-height: 1.2;
-    color: var(--ink);
+    font-size: 1.9rem;
+    line-height: 1.25;
+    color: var(--navy-text);
   }
 
-  .domains dd {
-    margin: 0.2rem 0 2rem;
+  .domains p {
+    margin: 0.3rem 0 0;
     color: var(--muted);
-    max-width: 31rem;
+    max-width: 30rem;
   }
-
-  .domains dd:last-child { margin-bottom: 0; }
-
-  .lead-in { margin-bottom: 2rem; }
 
   /* Courses */
   .courses {
@@ -233,31 +376,40 @@
     display: grid;
     grid-template-columns: 6.5rem 1fr;
     column-gap: 1rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--teal-line);
+    align-items: baseline;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--line);
   }
 
-  .courses li:first-child { padding-top: 0; }
-  .courses li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .courses li:last-child { border-bottom: 1px solid var(--line); }
 
   .courses .code {
     font-variant-numeric: tabular-nums;
-    letter-spacing: 0.04em;
-    color: var(--brass);
-    font-weight: 500;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    color: var(--gold-ink);
   }
 
   .courses .title {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    line-height: 1.35;
+    font-family: var(--display);
+    font-size: 1.55rem;
+    line-height: 1.3;
+    color: var(--navy-text);
   }
 
   .courses .note {
     display: block;
-    margin-top: 0.15rem;
-    font-size: 0.975rem;
+    margin-top: 0.2rem;
+    font-size: 0.98rem;
     color: var(--muted);
+  }
+
+  /* Beyond the syllabus */
+  .statement {
+    font-family: var(--display);
+    font-size: 1.75rem;
+    line-height: 1.4;
+    color: var(--navy-text);
   }
 
   /* Know me more */
@@ -267,22 +419,23 @@
     padding: 0;
   }
 
-  .profiles li { border-bottom: 1px solid var(--teal-line); }
-  .profiles li:last-child { border-bottom: 0; }
+  .profiles li { border-top: 1px solid var(--line); }
+  .profiles li:last-child { border-bottom: 1px solid var(--line); }
 
   .profiles a {
     display: grid;
-    grid-template-columns: 8rem 1fr;
+    grid-template-columns: 11rem 1fr;
     column-gap: 1rem;
     align-items: baseline;
-    padding: 1rem 0;
+    padding: 1.15rem 0;
     text-decoration: none;
   }
 
   .profiles .platform {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.9rem;
+    line-height: 1.25;
+    color: var(--navy-text);
     transition: color 0.2s ease;
   }
 
@@ -290,24 +443,27 @@
     color: var(--muted);
     text-decoration: underline;
     text-decoration-color: transparent;
-    text-underline-offset: 0.25em;
-    transition: text-decoration-color 0.2s ease, color 0.2s ease;
+    text-underline-offset: 0.3em;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
     overflow-wrap: anywhere;
   }
 
-  .profiles a:hover .platform { color: var(--teal); }
+  .profiles a:hover .platform { color: var(--teal-ink); }
   .profiles a:hover .handle {
-    color: var(--teal);
-    text-decoration-color: var(--brass);
+    color: var(--gold-ink);
+    text-decoration-color: var(--gold-ink);
   }
 
-  /* Contact form */
-  .field { margin-bottom: 1.6rem; }
+  /* Contact form (on navy) */
+  .band-navy .lead-in { color: var(--on-navy); }
+
+  .field { margin-bottom: 1.7rem; }
 
   .field label {
     display: block;
     font-size: 0.95rem;
-    color: var(--muted);
+    color: var(--on-navy-soft);
   }
 
   .field input,
@@ -316,10 +472,10 @@
     width: 100%;
     padding: 0.55rem 0;
     border: 0;
-    border-bottom: 1px solid #9DB0B0;
+    border-bottom: 1px solid rgba(211, 219, 234, 0.4);
     border-radius: 0;
     background: transparent;
-    color: var(--ink);
+    color: #EEF2F7;
     font: inherit;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
@@ -329,92 +485,116 @@
   .field input:focus,
   .field textarea:focus {
     outline: none;
-    border-bottom-color: var(--teal);
-    box-shadow: 0 1px 0 0 var(--teal);
+    border-bottom-color: var(--gold);
+    box-shadow: 0 1px 0 0 var(--gold);
   }
 
   .hidden-field { display: none; }
 
   .send {
-    padding: 0.85rem 2.1rem;
+    padding: 0.85rem 2.2rem;
     border: 0;
     border-radius: 2px;
-    background: var(--teal);
-    color: var(--paper);
+    background: var(--gold);
+    color: var(--navy);
     font: inherit;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.02em;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
 
-  .send:hover { background: var(--teal-deep); }
+  .send:hover { background: #EFCB82; }
   .send:disabled { opacity: 0.65; cursor: default; }
 
   .form-status {
     min-height: 1.7rem;
     margin: 1.1rem 0 0;
-    color: var(--teal);
+    color: #9ADBCB;
   }
 
-  .form-status.is-error { color: #8C3B2E; }
+  .form-status.is-error { color: #F4A58E; }
+  .form-status a { color: inherit; }
 
   /* Quote */
   .quote {
-    display: grid;
-    grid-template-columns: 11rem 1fr;
-    column-gap: 2.5rem;
-    padding: 6rem 0;
-    border-top: 1px solid var(--teal-line);
+    padding: 6.5rem 0;
+    text-align: center;
   }
 
   .quote blockquote {
-    grid-column: 2;
-    margin: 0;
-    max-width: 38rem;
+    position: relative;
+    margin: 0 auto;
+    max-width: 46rem;
+    padding-top: 2.25rem;
+  }
+
+  .quote blockquote::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3.25rem;
+    height: 1px;
+    margin-left: -1.625rem;
+    background: var(--gold-ink);
   }
 
   .quote p {
     margin: 0;
-    font-family: var(--serif);
+    font-family: var(--display);
     font-style: italic;
-    font-weight: 300;
-    font-size: clamp(2rem, 4vw, 2.9rem);
+    font-weight: 400;
+    font-size: clamp(2rem, 4.4vw, 3.15rem);
     line-height: 1.22;
-    color: var(--teal);
+    color: var(--navy-text);
   }
 
   .quote footer {
-    margin-top: 1.5rem;
-    color: var(--brass);
+    margin-top: 1.75rem;
     font-weight: 500;
+    color: var(--gold-ink);
   }
 
-  .quote footer::before {
-    content: "";
-    display: inline-block;
-    width: 2rem;
-    height: 1px;
-    margin-right: 0.8rem;
-    vertical-align: middle;
-    background: var(--brass);
+  /* Acknowledgement (on navy) */
+  .thanks strong {
+    font-weight: 600;
+    color: var(--gold);
   }
 
-  .thanks strong { font-weight: 600; }
-
-  /* One page-load moment: the introduction settles into place */
-  @media (prefers-reduced-motion: no-preference) {
-    .intro > * {
-      opacity: 0;
-      transform: translateY(14px);
-      animation: settle 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-    }
-    .intro .affiliation { animation-delay: 0.25s; }
-    .intro .creed { animation-delay: 0.5s; }
-  }
-
-  @keyframes settle {
+  /* ---------- Page-load sequence (once) ---------- */
+  @keyframes name-fallback { to { opacity: 1; } }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: none; }
+  }
+  @keyframes disc-in {
+    from { transform: rotate(-260deg); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+  @keyframes pt-in { to { opacity: 0.5; } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .affiliation,
+    .creed {
+      opacity: 0;
+      animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    }
+    .affiliation { animation-delay: 1.3s; }
+    .creed { animation-delay: 1.6s; }
+
+    .ring-outer { animation: disc-in 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+    .plot .pt {
+      opacity: 0;
+      animation: pt-in 0.6s ease forwards;
+    }
+    .plot .fit {
+      stroke-dasharray: 1300;
+      stroke-dashoffset: 1300;
+      animation: draw 1.8s ease 0.9s forwards;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -423,55 +603,42 @@
 
   /* ---------- Narrow screens ---------- */
   @media (max-width: 62rem) {
-    .layout { display: block; }
+    .hero { min-height: 0; }
 
-    .rail {
-      position: static;
-      height: auto;
-      gap: 1.75rem;
-      padding: 2.75rem 1.5rem 2rem;
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 3.5rem 0 4rem;
     }
 
-    .rail-nav ul {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.25rem 1.4rem;
-    }
+    .portrait-wrap { width: min(100%, 21rem); }
 
-    .rail-nav a.is-current::before { display: none; }
+    .band { padding: 3.75rem 0; }
 
-    .intro {
-      min-height: 0;
-      padding: 4rem 0 3.5rem;
-    }
+    .part { display: block; }
+    .part h2 { margin-bottom: 1.75rem; }
 
-    .part,
-    .quote {
-      display: block;
-      padding: 3.25rem 0;
-    }
-
-    .part h2 { margin-bottom: 1.5rem; }
+    .quote { padding: 4.5rem 0; }
   }
 
-  @media (max-width: 30rem) {
+  @media (max-width: 36rem) {
+    .topbar .wrap { gap: 1rem; }
+    .topnav a { font-size: 0.9rem; }
+
+    .domains li { grid-template-columns: 1fr; row-gap: 0.75rem; }
     .courses li { grid-template-columns: 1fr; }
     .profiles a { grid-template-columns: 1fr; }
+    .statement { font-size: 1.5rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="layout">
-
-  <aside class="rail">
-    <figure class="portrait">
-      <img src="photo.png" alt="Portrait of Devansh Agarwal" width="720" height="1600">
-    </figure>
-    <nav class="rail-nav" aria-label="Sections">
+<header class="topbar">
+  <div class="wrap">
+    <a class="mark" href="#about" aria-label="Back to the top">DA</a>
+    <nav class="topnav" aria-label="Sections">
       <ul>
-        <li><a href="#about">Introduction</a></li>
         <li><a href="#interests">Interests</a></li>
         <li><a href="#semester">This semester</a></li>
         <li><a href="#beyond">Beyond the syllabus</a></li>
@@ -479,32 +646,87 @@
         <li><a href="#contact">Get in touch</a></li>
       </ul>
     </nav>
-  </aside>
+  </div>
+</header>
 
-  <main class="main">
+<main>
 
-    <header class="intro" id="about">
-      <h1>Devansh Agarwal</h1>
-      <p class="affiliation">First-year student of BS Mathematics<br>Indian Institute of Technology Madras</p>
-      <p class="creed">Mathematics is my passion.</p>
-    </header>
+  <section class="hero" id="about">
+    <svg class="plot" id="plot" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"></svg>
 
-    <section class="part" id="interests" aria-labelledby="h-interests">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 class="hero-name" id="name">Devansh Agarwal</h1>
+          <p class="affiliation">First-year student of BS Mathematics<br>Indian Institute of Technology Madras</p>
+          <p class="creed">Mathematics is my passion.</p>
+        </div>
+
+        <div class="portrait-wrap">
+          <svg class="disc" viewBox="0 0 420 420" aria-hidden="true" focusable="false">
+            <circle class="rule" cx="210" cy="210" r="132"></circle>
+            <circle class="rule" cx="210" cy="210" r="167"></circle>
+            <circle class="rule" cx="210" cy="210" r="198"></circle>
+            <g id="ring-inner" class="letters-inner"></g>
+            <g id="ring-outer" class="ring-outer"></g>
+          </svg>
+          <img class="portrait-photo" src="photo.png" alt="Portrait of Devansh Agarwal" width="720" height="1600">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper" id="interests" aria-labelledby="h-interests">
+    <div class="wrap part">
       <h2 id="h-interests">Mathematical interests</h2>
       <div class="body">
         <p class="lead-in">Three areas of mathematics intrigue me most deeply.</p>
-        <dl class="domains">
-          <dt>Combinatorics</dt>
-          <dd>The study of how things can be counted, arranged and combined, and why the answers take the shape they do.</dd>
-          <dt>Probability</dt>
-          <dd>Reasoning about chance and uncertainty with the same rigour as any other branch of mathematics.</dd>
-          <dt>Linear Algebra</dt>
-          <dd>Vector spaces, linear maps and matrices, the structure that runs beneath so much of modern mathematics.</dd>
-        </dl>
+        <ul class="domains">
+          <li>
+            <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <g fill="currentColor" stroke="none">
+                <circle cx="8" cy="8" r="2"/><circle cx="24" cy="8" r="2"/><circle cx="40" cy="8" r="2"/><circle cx="56" cy="8" r="2"/>
+                <circle cx="8" cy="24" r="2"/><circle cx="24" cy="24" r="2"/><circle cx="40" cy="24" r="2"/><circle cx="56" cy="24" r="2"/>
+                <circle cx="8" cy="40" r="2"/><circle cx="24" cy="40" r="2"/><circle cx="40" cy="40" r="2"/><circle cx="56" cy="40" r="2"/>
+                <circle cx="8" cy="56" r="2"/><circle cx="24" cy="56" r="2"/><circle cx="40" cy="56" r="2"/><circle cx="56" cy="56" r="2"/>
+              </g>
+              <path class="accent" d="M8 56V40H24V24H40V8H56" stroke-width="2.5"/>
+            </svg>
+            <div>
+              <h3>Combinatorics</h3>
+              <p>The study of how things can be counted, arranged and combined, and why the answers take the shape they do.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M4 54H60" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M6 54C18 54 22 12 32 12S46 54 58 54" stroke="currentColor" stroke-width="2.5"/>
+              <path class="accent" d="M32 12V54" stroke-width="1.5" stroke-dasharray="3 4"/>
+            </svg>
+            <div>
+              <h3>Probability</h3>
+              <p>Reasoning about chance and uncertainty with the same rigour as any other branch of mathematics.</p>
+            </div>
+          </li>
+          <li>
+            <svg class="glyph" viewBox="0 0 64 64" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 54L40 44M12 54L22 16" stroke="currentColor" stroke-width="2.5"/>
+              <path class="accent" d="M40 44L50 6M22 16L50 6" stroke-width="1.5" stroke-dasharray="3 4"/>
+              <circle cx="12" cy="54" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="50" cy="6" r="2.5" fill="currentColor" stroke="none"/>
+            </svg>
+            <div>
+              <h3>Linear Algebra</h3>
+              <p>Vector spaces, linear maps and matrices, the structure that runs beneath so much of modern mathematics.</p>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="part" id="semester" aria-labelledby="h-semester">
+  <section class="band band-tint" id="semester" aria-labelledby="h-semester">
+    <div class="wrap part">
       <h2 id="h-semester">This semester</h2>
       <div class="body">
         <ul class="courses">
@@ -529,17 +751,21 @@
           </li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="part" id="beyond" aria-labelledby="h-beyond">
+  <section class="band band-paper" id="beyond" aria-labelledby="h-beyond">
+    <div class="wrap part">
       <h2 id="h-beyond">Beyond the syllabus</h2>
       <div class="body">
-        <p>Alongside my academics, I practise competitive programming, and I am currently exploring the mathematical foundations of AI.</p>
+        <p class="statement">Alongside my academics, I practise competitive programming, and I am currently exploring the mathematical foundations of AI.</p>
         <p>Away from the desk, I enjoy listening to music, playing the guitar and playing cricket. Mental math is a pastime of its own, and staying up to date with current affairs is another of my passions.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="part" id="online" aria-labelledby="h-online">
+  <section class="band band-tint" id="online" aria-labelledby="h-online">
+    <div class="wrap part">
       <h2 id="h-online">Know me more</h2>
       <div class="body">
         <ul class="profiles">
@@ -563,9 +789,11 @@
           </li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="part" id="contact" aria-labelledby="h-contact">
+  <section class="band band-navy" id="contact" aria-labelledby="h-contact">
+    <div class="wrap part">
       <h2 id="h-contact">Get in touch</h2>
       <div class="body">
         <p class="lead-in">Questions, ideas, or a conversation about mathematics are always welcome. Write to me below and your message will arrive in my inbox.</p>
@@ -593,33 +821,188 @@
           <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="quote" aria-label="A closing thought">
+  <section class="band band-paper quote" aria-label="A closing thought">
+    <div class="wrap">
       <blockquote>
         <p>“Genius is one per cent inspiration, ninety-nine per cent perspiration.”</p>
         <footer>Thomas Edison</footer>
       </blockquote>
-    </section>
+    </div>
+  </section>
 
-    <section class="part thanks" id="acknowledgement" aria-labelledby="h-thanks">
+  <section class="band band-navy thanks" id="acknowledgement" aria-labelledby="h-thanks">
+    <div class="wrap part">
       <h2 id="h-thanks">Acknowledgement</h2>
       <div class="body">
         <p>I am grateful to <strong>Professor G. Arun Kumar</strong>, Assistant Professor in the Department of Mathematics at IIT Madras, who inspired us to create our own websites on GitHub.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
-</div>
+</main>
 
 <script>
   (function () {
-    /* ---- Highlight the current section in the side navigation ---- */
-    var links = document.querySelectorAll('.rail-nav a');
-    var byId = {};
-    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    var NS = 'http://www.w3.org/2000/svg';
+    var reduceMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if ('IntersectionObserver' in window) {
+    function svgEl(tag, attrs) {
+      var el = document.createElementNS(NS, tag);
+      for (var k in attrs) el.setAttribute(k, attrs[k]);
+      return el;
+    }
+
+    /* ---- Cipher disc: plain alphabet outside, Caesar-shifted alphabet inside ---- */
+    (function buildDisc() {
+      var plain = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var shifted = 'DEFGHIJKLMNOPQRSTUVWXYZABC';
+      var n = plain.length;
+      var outer = document.getElementById('ring-outer');
+      var inner = document.getElementById('ring-inner');
+      outer.setAttribute('class', 'ring-outer');
+      var lettersOuter = svgEl('g', { 'class': 'letters-outer' });
+      outer.appendChild(lettersOuter);
+
+      for (var i = 0; i < n; i++) {
+        var angle = (i * 360 / n).toFixed(3);
+        var rot = 'rotate(' + angle + ' 210 210)';
+
+        var t = svgEl('text', { x: 210, y: 210 - 181, 'text-anchor': 'middle', transform: rot });
+        t.textContent = plain.charAt(i);
+        lettersOuter.appendChild(t);
+
+        var tick = svgEl('line', { 'class': 'tick', x1: 210, y1: 12, x2: 210, y2: 19, transform: rot });
+        outer.appendChild(tick);
+
+        var s = svgEl('text', { x: 210, y: 210 - 150, 'text-anchor': 'middle', transform: rot });
+        s.textContent = shifted.charAt(i);
+        inner.appendChild(s);
+      }
+    })();
+
+    /* ---- Data-science backdrop: scatter plot with fitted line and band ---- */
+    (function buildPlot() {
+      var svg = document.getElementById('plot');
+      var seed = 11;
+      function rand() {
+        seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+        var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      }
+      function gauss() {
+        var u = 1 - rand(), v = rand();
+        return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+      }
+      function line(x) { return 360 - 0.209 * (x - 60); }
+
+      svg.appendChild(svgEl('line', { 'class': 'axis', x1: 60, y1: 392, x2: 1170, y2: 392 }));
+      svg.appendChild(svgEl('line', { 'class': 'axis', x1: 60, y1: 40, x2: 60, y2: 392 }));
+      for (var x = 160; x <= 1160; x += 100) {
+        svg.appendChild(svgEl('line', { 'class': 'axis', x1: x, y1: 392, x2: x, y2: 398 }));
+      }
+      for (var y = 92; y <= 380; y += 72) {
+        svg.appendChild(svgEl('line', { 'class': 'axis', x1: 54, y1: y, x2: 60, y2: y }));
+      }
+
+      var pts = [
+        [60, line(60) - 34], [1160, line(1160) - 66],
+        [1160, line(1160) + 66], [60, line(60) + 34]
+      ].map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+      svg.appendChild(svgEl('polygon', { 'class': 'band', points: pts }));
+
+      svg.appendChild(svgEl('line', {
+        'class': 'fit', x1: 60, y1: line(60), x2: 1160, y2: line(1160)
+      }));
+
+      for (var i = 0; i < 74; i++) {
+        var px = 90 + rand() * 1050;
+        var sigma = 24 + 16 * (px / 1200);
+        var py = Math.min(386, Math.max(30, line(px) + gauss() * sigma));
+        var c = svgEl('circle', { 'class': 'pt', cx: px.toFixed(1), cy: py.toFixed(1), r: 3 });
+        c.style.animationDelay = (0.5 + i * 0.022).toFixed(3) + 's';
+        svg.appendChild(c);
+      }
+    })();
+
+    /* ---- Name: ciphertext resolving into plain text ---- */
+    (function decryptName() {
+      var heading = document.getElementById('name');
+      var text = heading.textContent.trim();
+
+      if (reduceMotion) { heading.classList.add('is-live'); return; }
+
+      heading.setAttribute('aria-label', text);
+      heading.textContent = '';
+
+      var chars = [];
+      var words = text.split(' ');
+      words.forEach(function (word, wi) {
+        var w = document.createElement('span');
+        w.className = 'word';
+        w.setAttribute('aria-hidden', 'true');
+        word.split('').forEach(function (c) {
+          var s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = c;
+          s.setAttribute('data-real', c);
+          w.appendChild(s);
+          chars.push(s);
+        });
+        heading.appendChild(w);
+        if (wi < words.length - 1) heading.appendChild(document.createTextNode(' '));
+      });
+
+      var pool = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+      function run() {
+        chars.forEach(function (s) { s.style.width = s.getBoundingClientRect().width + 'px'; });
+        heading.classList.add('is-live');
+
+        var start = performance.now();
+        var timer = setInterval(function () {
+          var elapsed = performance.now() - start;
+          var pending = 0;
+          chars.forEach(function (s, i) {
+            if (elapsed >= 450 + i * 80) {
+              if (s.textContent !== s.getAttribute('data-real')) {
+                s.textContent = s.getAttribute('data-real');
+              }
+              s.classList.remove('is-scrambling');
+            } else {
+              pending++;
+              s.textContent = pool.charAt(Math.floor(Math.random() * pool.length));
+              s.classList.add('is-scrambling');
+            }
+          });
+          if (!pending) {
+            clearInterval(timer);
+            chars.forEach(function (s) { s.style.width = ''; });
+          }
+        }, 55);
+      }
+
+      if (document.fonts && document.fonts.ready) {
+        var started = false;
+        var go = function () { if (!started) { started = true; run(); } };
+        document.fonts.ready.then(go);
+        setTimeout(go, 1200);
+      } else {
+        run();
+      }
+    })();
+
+    /* ---- Highlight the current section in the top navigation ---- */
+    (function navHighlight() {
+      var links = document.querySelectorAll('.topnav a');
+      var byId = {};
+      links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+      if (!('IntersectionObserver' in window)) return;
+
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
@@ -627,81 +1010,83 @@
           var link = byId[entry.target.id];
           if (link) link.classList.add('is-current');
         });
-      }, { rootMargin: '-35% 0px -60% 0px' });
+      }, { rootMargin: '-30% 0px -62% 0px' });
 
       Object.keys(byId).forEach(function (id) {
         var el = document.getElementById(id);
         if (el) observer.observe(el);
       });
-    }
+    })();
 
     /* ---- Contact form ---- */
-    var TO = 'dev31agarwal@gmail.com';
-    var form = document.getElementById('contact-form');
-    var status = document.getElementById('form-status');
-    var button = form.querySelector('.send');
+    (function contactForm() {
+      var TO = 'dev31agarwal@gmail.com';
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('form-status');
+      var button = form.querySelector('.send');
 
-    function setStatus(text, isError) {
-      status.textContent = text;
-      status.classList.toggle('is-error', !!isError);
-    }
-
-    function mailtoFallback(name, email, message) {
-      var body = message + '\n\n' + name + '\n' + email;
-      return 'mailto:' + TO +
-        '?subject=' + encodeURIComponent('Message from ' + name) +
-        '&body=' + encodeURIComponent(body);
-    }
-
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      var name = form.elements.name.value.trim();
-      var email = form.elements.email.value.trim();
-      var message = form.elements.message.value.trim();
-
-      if (form.elements._honey.value) return;
-
-      if (!name || !email || !message) {
-        setStatus('Please fill in your name, email and message.', true);
-        return;
-      }
-      if (!form.elements.email.checkValidity()) {
-        setStatus('Please enter a valid email address so I can reply.', true);
-        return;
+      function setStatus(text, isError) {
+        status.textContent = text;
+        status.classList.toggle('is-error', !!isError);
       }
 
-      button.disabled = true;
-      button.textContent = 'Sending…';
-      setStatus('', false);
+      function mailtoFallback(name, email, message) {
+        var body = message + '\n\n' + name + '\n' + email;
+        return 'mailto:' + TO +
+          '?subject=' + encodeURIComponent('Message from ' + name) +
+          '&body=' + encodeURIComponent(body);
+      }
 
-      fetch('https://formsubmit.co/ajax/' + TO, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data && (data.success === true || data.success === 'true')) {
-            form.reset();
-            setStatus('Thank you, ' + name + '. Your message has been sent.', false);
-          } else {
-            throw new Error('Not delivered');
-          }
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var name = form.elements.name.value.trim();
+        var email = form.elements.email.value.trim();
+        var message = form.elements.message.value.trim();
+
+        if (form.elements._honey.value) return;
+
+        if (!name || !email || !message) {
+          setStatus('Please fill in your name, email and message.', true);
+          return;
+        }
+        if (!form.elements.email.checkValidity()) {
+          setStatus('Please enter a valid email address so I can reply.', true);
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        setStatus('', false);
+
+        fetch('https://formsubmit.co/ajax/' + TO, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
         })
-        .catch(function () {
-          status.classList.add('is-error');
-          status.textContent = 'The message could not be sent from here. ';
-          var a = document.createElement('a');
-          a.href = mailtoFallback(name, email, message);
-          a.textContent = 'Send it from your mail app instead.';
-          status.appendChild(a);
-        })
-        .then(function () {
-          button.disabled = false;
-          button.textContent = 'Send message';
-        });
-    });
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data && (data.success === true || data.success === 'true')) {
+              form.reset();
+              setStatus('Thank you, ' + name + '. Your message has been sent.', false);
+            } else {
+              throw new Error('Not delivered');
+            }
+          })
+          .catch(function () {
+            status.classList.add('is-error');
+            status.textContent = 'The message could not be sent from here. ';
+            var a = document.createElement('a');
+            a.href = mailtoFallback(name, email, message);
+            a.textContent = 'Send it from your mail app instead.';
+            status.appendChild(a);
+          })
+          .then(function () {
+            button.disabled = false;
+            button.textContent = 'Send message';
+          });
+      });
+    })();
   })();
 </script>
 
