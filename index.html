@@ -8,27 +8,28 @@
 <meta name="theme-color" content="#0B1730">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <style>
   :root {
+    color-scheme: dark;
     --navy: #0B1730;
     --navy-soft: #13254A;
-    --navy-text: #12264D;
-    --paper: #F4F6FA;
-    --tint: #E7EEF3;
-    --ink: #172033;
-    --muted: #586377;
+    --navy-text: #EEF2F7;
+    --paper: #0B1730;
+    --tint: #0F2040;
+    --ink: #E3E9F4;
+    --muted: #9FB0CC;
     --on-navy: #D3DBEA;
     --on-navy-soft: #AEBBD3;
     --gold: #E2B861;
-    --gold-ink: #7F5F17;
+    --gold-ink: #E2B861;
     --teal: #5CC8C2;
-    --teal-ink: #167A7A;
-    --line: rgba(18, 38, 77, 0.16);
+    --teal-ink: #5CC8C2;
+    --line: rgba(211, 219, 234, 0.16);
     --line-navy: rgba(211, 219, 234, 0.2);
-    --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-    --sans: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --display: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -90,8 +91,9 @@
     border: 1px solid var(--gold);
     border-radius: 50%;
     font-family: var(--display);
-    font-style: italic;
-    font-size: 1.1rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
     color: var(--gold);
     text-decoration: none;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -192,10 +194,10 @@
   .hero-name {
     margin: 0;
     font-family: var(--display);
-    font-weight: 500;
-    font-size: clamp(3rem, 7.2vw, 6rem);
-    line-height: 1.04;
-    letter-spacing: -0.012em;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
     color: #EEF2F7;
   }
 
@@ -224,9 +226,9 @@
     margin: 2.75rem 0 0;
     padding-top: 1.75rem;
     font-family: var(--display);
-    font-style: italic;
-    font-size: 1.9rem;
-    line-height: 1.3;
+    font-weight: 400;
+    font-size: 1.55rem;
+    line-height: 1.35;
     color: var(--gold);
   }
 
@@ -284,12 +286,10 @@
     opacity: 0.75;
   }
 
-  .ring-outer {
+  .ring-outer,
+  .letters-inner {
     transform-origin: 210px 210px;
-    transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.2, 1);
   }
-
-  .portrait-wrap:hover .ring-outer { transform: rotate(13.846deg); }
 
   /* ---------- Bands and sections ---------- */
   .band { padding: 5.5rem 0; }
@@ -299,18 +299,18 @@
 
   .part {
     display: grid;
-    grid-template-columns: 12rem 1fr;
-    column-gap: 3rem;
+    grid-template-columns: 16rem 1fr;
+    column-gap: 2.5rem;
   }
 
   .part h2 {
     margin: 0;
     font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    font-size: 2.15rem;
-    line-height: 1.2;
-    color: var(--navy-text);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--gold);
   }
 
   .band-navy .part h2 { color: var(--gold); }
@@ -353,9 +353,9 @@
   .domains h3 {
     margin: 0;
     font-family: var(--display);
-    font-weight: 400;
-    font-size: 1.9rem;
-    line-height: 1.25;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.3;
     color: var(--navy-text);
   }
 
@@ -392,8 +392,9 @@
 
   .courses .title {
     font-family: var(--display);
-    font-size: 1.55rem;
-    line-height: 1.3;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.35;
     color: var(--navy-text);
   }
 
@@ -407,8 +408,9 @@
   /* Beyond the syllabus */
   .statement {
     font-family: var(--display);
-    font-size: 1.75rem;
-    line-height: 1.4;
+    font-size: 1.45rem;
+    font-weight: 400;
+    line-height: 1.5;
     color: var(--navy-text);
   }
 
@@ -424,7 +426,7 @@
 
   .profiles a {
     display: grid;
-    grid-template-columns: 11rem 1fr;
+    grid-template-columns: 12.5rem 1fr;
     column-gap: 1rem;
     align-items: baseline;
     padding: 1.15rem 0;
@@ -433,8 +435,9 @@
 
   .profiles .platform {
     font-family: var(--display);
-    font-size: 1.9rem;
-    line-height: 1.25;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.3;
     color: var(--navy-text);
     transition: color 0.2s ease;
   }
@@ -543,17 +546,11 @@
   .quote p {
     margin: 0;
     font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    font-size: clamp(2rem, 4.4vw, 3.15rem);
-    line-height: 1.22;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
     color: var(--navy-text);
-  }
-
-  .quote footer {
-    margin-top: 1.75rem;
-    font-weight: 500;
-    color: var(--gold-ink);
   }
 
   /* Acknowledgement (on navy) */
@@ -568,12 +565,18 @@
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: none; }
   }
-  @keyframes disc-in {
-    from { transform: rotate(-260deg); opacity: 0; }
-    to { transform: none; opacity: 1; }
+  @keyframes ring-turn { to { transform: rotate(360deg); } }
+  @keyframes ring-turn-back { to { transform: rotate(-360deg); } }
+  @keyframes pt-pulse {
+    0%, 100% { opacity: 0.12; }
+    50% { opacity: 0.6; }
   }
-  @keyframes pt-in { to { opacity: 0.5; } }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes fit-loop {
+    0% { stroke-dashoffset: 1300; stroke-opacity: 0.75; }
+    35% { stroke-dashoffset: 0; stroke-opacity: 0.75; }
+    85% { stroke-dashoffset: 0; stroke-opacity: 0.75; }
+    100% { stroke-dashoffset: 0; stroke-opacity: 0; }
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     .affiliation,
@@ -584,16 +587,13 @@
     .affiliation { animation-delay: 1.3s; }
     .creed { animation-delay: 1.6s; }
 
-    .ring-outer { animation: disc-in 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+    .ring-outer { animation: ring-turn 72s linear infinite; }
+    .letters-inner { animation: ring-turn-back 110s linear infinite; }
 
-    .plot .pt {
-      opacity: 0;
-      animation: pt-in 0.6s ease forwards;
-    }
+    .plot .pt { animation: pt-pulse 6s ease-in-out infinite; }
     .plot .fit {
       stroke-dasharray: 1300;
-      stroke-dashoffset: 1300;
-      animation: draw 1.8s ease 0.9s forwards;
+      animation: fit-loop 14s ease-in-out infinite;
     }
   }
 
@@ -628,7 +628,7 @@
     .domains li { grid-template-columns: 1fr; row-gap: 0.75rem; }
     .courses li { grid-template-columns: 1fr; }
     .profiles a { grid-template-columns: 1fr; }
-    .statement { font-size: 1.5rem; }
+    .statement { font-size: 1.25rem; }
   }
 </style>
 </head>
@@ -824,11 +824,10 @@
     </div>
   </section>
 
-  <section class="band band-paper quote" aria-label="A closing thought">
+  <section class="band band-tint quote" aria-label="A closing thought">
     <div class="wrap">
       <blockquote>
-        <p>“Genius is one per cent inspiration, ninety-nine per cent perspiration.”</p>
-        <footer>Thomas Edison</footer>
+        <p>“There is no substitute for hard work.”</p>
       </blockquote>
     </div>
   </section>
@@ -924,7 +923,8 @@
         var sigma = 24 + 16 * (px / 1200);
         var py = Math.min(386, Math.max(30, line(px) + gauss() * sigma));
         var c = svgEl('circle', { 'class': 'pt', cx: px.toFixed(1), cy: py.toFixed(1), r: 3 });
-        c.style.animationDelay = (0.5 + i * 0.022).toFixed(3) + 's';
+        c.style.animationDuration = (4 + rand() * 4).toFixed(2) + 's';
+        c.style.animationDelay = (-rand() * 8).toFixed(2) + 's';
         svg.appendChild(c);
       }
     })();
@@ -982,6 +982,7 @@
           if (!pending) {
             clearInterval(timer);
             chars.forEach(function (s) { s.style.width = ''; });
+            setTimeout(run, 6000);
           }
         }, 55);
       }
