@@ -109,7 +109,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    gap: clamp(1rem, 2.6vw, 2.25rem);
+    gap: clamp(0.9rem, 1.8vw, 1.75rem);
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
@@ -121,7 +121,7 @@
     position: relative;
     display: block;
     padding: 0.4rem 0;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--on-navy-soft);
     text-decoration: none;
@@ -414,6 +414,117 @@
     color: var(--navy-text);
   }
 
+  /* Entries: education, activities, reading */
+  .entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .entries li {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    column-gap: 1.25rem;
+    align-items: baseline;
+    padding: 1.3rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .entries li:last-child { border-bottom: 1px solid var(--line); }
+
+  .entries .name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--navy-text);
+  }
+
+  .entries .detail { color: var(--muted); }
+
+  /* Mental math */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .part .body .mm-question {
+    margin: 1.75rem 0 1.75rem;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: var(--navy-text);
+    overflow-wrap: anywhere;
+  }
+
+  .mm-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem 1.25rem;
+  }
+
+  .mm-form input {
+    width: 12rem;
+    padding: 0.45rem 0;
+    border: 0;
+    border-bottom: 1px solid rgba(211, 219, 234, 0.4);
+    border-radius: 0;
+    background: transparent;
+    color: #EEF2F7;
+    font: inherit;
+    font-size: 1.4rem;
+    font-variant-numeric: tabular-nums;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .mm-form input:focus {
+    outline: none;
+    border-bottom-color: var(--gold);
+    box-shadow: 0 1px 0 0 var(--gold);
+  }
+
+  .mm-form input:disabled { opacity: 0.6; }
+
+  .ghost {
+    padding: 0.8rem 1.4rem;
+    border: 1px solid rgba(211, 219, 234, 0.3);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--on-navy-soft);
+    font: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .ghost:disabled { opacity: 0.5; cursor: default; }
+
+  .part .body .mm-feedback {
+    min-height: 1.7rem;
+    margin: 1.1rem 0 0;
+    font-weight: 500;
+  }
+
+  .mm-feedback.is-right { color: #9ADBCB; }
+  .mm-feedback.is-wrong { color: #F4A58E; }
+
+  .part .body .mm-stats {
+    margin: 1.25rem 0 0;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .mm-stats span { margin-right: 1.5rem; }
+
   /* Know me more */
   .profiles {
     list-style: none;
@@ -627,6 +738,7 @@
 
     .domains li { grid-template-columns: 1fr; row-gap: 0.75rem; }
     .courses li { grid-template-columns: 1fr; }
+    .entries li { grid-template-columns: 1fr; row-gap: 0.3rem; }
     .profiles a { grid-template-columns: 1fr; }
     .statement { font-size: 1.25rem; }
   }
@@ -636,14 +748,18 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="mark" href="#about" aria-label="Back to the top">DA</a>
+    <a class="mark" href="#top" aria-label="Back to the top">DA</a>
     <nav class="topnav" aria-label="Sections">
       <ul>
+        <li><a href="#about">About</a></li>
         <li><a href="#interests">Interests</a></li>
-        <li><a href="#semester">This semester</a></li>
-        <li><a href="#beyond">Beyond the syllabus</a></li>
+        <li><a href="#semester">Semester</a></li>
+        <li><a href="#beyond">Beyond</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#reading">Reading</a></li>
+        <li><a href="#mental-math">Mental math</a></li>
         <li><a href="#online">Know me more</a></li>
-        <li><a href="#contact">Get in touch</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -651,7 +767,7 @@
 
 <main>
 
-  <section class="hero" id="about">
+  <section class="hero" id="top">
     <svg class="plot" id="plot" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"></svg>
 
     <div class="wrap">
@@ -672,6 +788,25 @@
           </svg>
           <img class="portrait-photo" src="photo.png" alt="Portrait of Devansh Agarwal" width="720" height="1600">
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-tint" id="about" aria-labelledby="h-about">
+    <div class="wrap part">
+      <h2 id="h-about">About</h2>
+      <div class="body">
+        <p class="lead-in">Before IIT Madras, I studied in Hyderabad.</p>
+        <ul class="entries">
+          <li>
+            <span class="name">Modulus Junior College</span>
+            <span class="detail">Hyderabad<br>Affiliated with the Telangana State Board</span>
+          </li>
+          <li>
+            <span class="name">Chaitanya Vidyalaya</span>
+            <span class="detail">Hyderabad<br>ICSE school, passed out in 2024</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -764,7 +899,72 @@
     </div>
   </section>
 
-  <section class="band band-tint" id="online" aria-labelledby="h-online">
+  <section class="band band-tint" id="activities" aria-labelledby="h-activities">
+    <div class="wrap part">
+      <h2 id="h-activities">Clubs and activities</h2>
+      <div class="body">
+        <ul class="entries">
+          <li>
+            <span class="name">Saarang</span>
+            <span class="detail">Volunteer, Sponsorship and PR Team<br>The annual cultural festival of IIT Madras</span>
+          </li>
+          <li>
+            <span class="name">Shaastra</span>
+            <span class="detail">Volunteer, Coding and Logic Vertical<br>The annual technical festival of IIT Madras</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper" id="reading" aria-labelledby="h-reading">
+    <div class="wrap part">
+      <h2 id="h-reading">Reading list</h2>
+      <div class="body">
+        <ul class="entries">
+          <li>
+            <span class="name">Harry Potter</span>
+            <span class="detail">J. K. Rowling</span>
+          </li>
+          <li>
+            <span class="name">Alex Rider</span>
+            <span class="detail">Anthony Horowitz</span>
+          </li>
+          <li>
+            <span class="name">Rich Dad Poor Dad</span>
+            <span class="detail">Robert T. Kiyosaki</span>
+          </li>
+          <li>
+            <span class="name">The Merchant of Venice</span>
+            <span class="detail">William Shakespeare</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-tint" id="mental-math" aria-labelledby="h-mm">
+    <div class="wrap part">
+      <h2 id="h-mm">Mental math</h2>
+      <div class="body">
+        <p class="lead-in">A fresh question arrives after every answer, so there is always another one waiting. Work it out in your head.</p>
+
+        <p class="mm-question" id="mm-question" aria-live="polite">Loading a question…</p>
+
+        <form class="mm-form" id="mm-form" novalidate>
+          <label class="visually-hidden" for="mm-answer">Your answer</label>
+          <input id="mm-answer" type="text" inputmode="numeric" autocomplete="off" placeholder="Your answer">
+          <button class="send" id="mm-submit" type="submit">Check answer</button>
+          <button class="ghost" id="mm-skip" type="button">Skip</button>
+        </form>
+
+        <p class="mm-feedback" id="mm-feedback" role="status" aria-live="polite"></p>
+        <p class="mm-stats"><span id="mm-score">Your score appears after the first answer.</span> <span id="mm-streak"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-paper" id="online" aria-labelledby="h-online">
     <div class="wrap part">
       <h2 id="h-online">Know me more</h2>
       <div class="body">
@@ -792,7 +992,7 @@
     </div>
   </section>
 
-  <section class="band band-navy" id="contact" aria-labelledby="h-contact">
+  <section class="band band-tint" id="contact" aria-labelledby="h-contact">
     <div class="wrap part">
       <h2 id="h-contact">Get in touch</h2>
       <div class="body">
@@ -824,7 +1024,7 @@
     </div>
   </section>
 
-  <section class="band band-tint quote" aria-label="A closing thought">
+  <section class="band band-paper quote" aria-label="A closing thought">
     <div class="wrap">
       <blockquote>
         <p>“There is no substitute for hard work.”</p>
@@ -832,7 +1032,7 @@
     </div>
   </section>
 
-  <section class="band band-navy thanks" id="acknowledgement" aria-labelledby="h-thanks">
+  <section class="band band-tint thanks" id="acknowledgement" aria-labelledby="h-thanks">
     <div class="wrap part">
       <h2 id="h-thanks">Acknowledgement</h2>
       <div class="body">
@@ -1017,6 +1217,119 @@
         var el = document.getElementById(id);
         if (el) observer.observe(el);
       });
+    })();
+
+    /* ---- Mental math: an endless stream of random questions ---- */
+    (function mentalMath() {
+      var qEl = document.getElementById('mm-question');
+      var form = document.getElementById('mm-form');
+      var input = document.getElementById('mm-answer');
+      var submit = document.getElementById('mm-submit');
+      var skip = document.getElementById('mm-skip');
+      var feedback = document.getElementById('mm-feedback');
+      var scoreEl = document.getElementById('mm-score');
+      var streakEl = document.getElementById('mm-streak');
+
+      var current = null, attempted = 0, correct = 0, streak = 0, best = 0, busy = false;
+
+      function ri(a, b) { return a + Math.floor(Math.random() * (b - a + 1)); }
+
+      var makers = [
+        function product() {
+          var a = ri(13, 49), b = ri(12, 29);
+          return { text: a + ' \u00D7 ' + b, answer: a * b };
+        },
+        function square() {
+          var n = ri(13, 59);
+          if (n % 10 === 0) n += 1;
+          return { text: n + '\u00B2', answer: n * n };
+        },
+        function sumAndDifference() {
+          var a = ri(120, 899), b = ri(120, 899);
+          var c = ri(50, Math.min(400, a + b - 50));
+          return { text: a + ' + ' + b + ' \u2212 ' + c, answer: a + b - c };
+        },
+        function percentage() {
+          var ps = [5, 10, 15, 20, 25, 30, 35, 40, 45, 60, 75];
+          var p = ps[ri(0, ps.length - 1)];
+          var n = 20 * ri(5, 60);
+          return { text: p + '% of ' + n, answer: p * n / 100 };
+        },
+        function division() {
+          var d = ri(7, 19), q = ri(13, 59);
+          return { text: (d * q) + ' \u00F7 ' + d, answer: q };
+        },
+        function nearbyPair() {
+          var m = ri(21, 69), d = ri(1, 9);
+          return { text: (m - d) + ' \u00D7 ' + (m + d), answer: m * m - d * d };
+        }
+      ];
+
+      function nextQuestion() {
+        var previous = current && current.text;
+        var q;
+        do { q = makers[ri(0, makers.length - 1)](); } while (q.text === previous);
+        current = q;
+        qEl.textContent = q.text + ' = ?';
+      }
+
+      function setFeedback(text, kind) {
+        feedback.textContent = text;
+        feedback.className = 'mm-feedback' + (kind ? ' is-' + kind : '');
+      }
+
+      function updateStats() {
+        scoreEl.textContent = 'Correct: ' + correct + ' out of ' + attempted;
+        streakEl.textContent = 'Streak: ' + streak + ' (best ' + best + ')';
+      }
+
+      function lock(state) {
+        busy = state;
+        input.disabled = state;
+        submit.disabled = state;
+        skip.disabled = state;
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (busy) return;
+
+        var raw = input.value.replace(/[\s,]/g, '');
+        if (raw === '' || isNaN(Number(raw))) {
+          setFeedback('Type a number to check your answer.', '');
+          return;
+        }
+
+        attempted++;
+        var isRight = Number(raw) === current.answer;
+        if (isRight) {
+          correct++; streak++; if (streak > best) best = streak;
+          setFeedback('Correct.', 'right');
+        } else {
+          streak = 0;
+          setFeedback('Not quite. The answer is ' + current.answer + '.', 'wrong');
+        }
+        updateStats();
+        lock(true);
+
+        setTimeout(function () {
+          nextQuestion();
+          input.value = '';
+          setFeedback('', '');
+          lock(false);
+          input.focus({ preventScroll: true });
+        }, isRight ? 1000 : 2000);
+      });
+
+      skip.addEventListener('click', function () {
+        if (busy) return;
+        nextQuestion();
+        input.value = '';
+        setFeedback('', '');
+        input.focus({ preventScroll: true });
+      });
+
+      nextQuestion();
     })();
 
     /* ---- Contact form ---- */
