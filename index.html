@@ -1236,31 +1236,31 @@
 
       var makers = [
         function product() {
-          var a = ri(13, 49), b = ri(12, 29);
+          var a = ri(12, 39), b = ri(3, 9);
           return { text: a + ' \u00D7 ' + b, answer: a * b };
         },
         function square() {
-          var n = ri(13, 59);
+          var n = ri(11, 29);
           if (n % 10 === 0) n += 1;
           return { text: n + '\u00B2', answer: n * n };
         },
         function sumAndDifference() {
-          var a = ri(120, 899), b = ri(120, 899);
-          var c = ri(50, Math.min(400, a + b - 50));
+          var a = ri(40, 299), b = ri(40, 299);
+          var c = ri(20, Math.min(150, a + b - 20));
           return { text: a + ' + ' + b + ' \u2212 ' + c, answer: a + b - c };
         },
         function percentage() {
-          var ps = [5, 10, 15, 20, 25, 30, 35, 40, 45, 60, 75];
+          var ps = [5, 10, 15, 20, 25, 50, 75];
           var p = ps[ri(0, ps.length - 1)];
-          var n = 20 * ri(5, 60);
+          var n = 20 * ri(3, 30);
           return { text: p + '% of ' + n, answer: p * n / 100 };
         },
         function division() {
-          var d = ri(7, 19), q = ri(13, 59);
+          var d = ri(4, 12), q = ri(6, 25);
           return { text: (d * q) + ' \u00F7 ' + d, answer: q };
         },
         function nearbyPair() {
-          var m = ri(21, 69), d = ri(1, 9);
+          var m = ri(12, 35), d = ri(1, 6);
           return { text: (m - d) + ' \u00D7 ' + (m + d), answer: m * m - d * d };
         }
       ];
