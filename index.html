@@ -1,241 +1,709 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Devansh Agarwal | Mathematics & Research</title>
-<meta name="description" content="Personal academic portfolio of a mathematics student at IIT Madras.">
+<title>Devansh Agarwal</title>
+<meta name="description" content="Devansh Agarwal, first-year student of BS Mathematics at the Indian Institute of Technology Madras.">
+<meta name="theme-color" content="#14383E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#f7f7f2; --ink:#252a25; --muted:#687067;
-  --accent:#58765d; --line:#dedfd6; --card:#fffef9;
-}
-* {box-sizing:border-box}
-html {scroll-behavior:smooth;scroll-padding-top:85px}
-body {margin:0;background:var(--bg);color:var(--ink);
-  font:16px/1.75 Arial, sans-serif}
-a {color:inherit}
-header {position:sticky;top:0;background:var(--bg);
-  border-bottom:1px solid var(--line);z-index:5}
-nav {max-width:1050px;margin:auto;padding:18px 24px;
-  display:flex;justify-content:space-between;align-items:center}
-.logo {font-size:24px;font-weight:bold;text-decoration:none}
-.logo span {color:var(--accent)}
-nav div {display:flex;gap:22px;flex-wrap:wrap}
-nav div a {font-size:14px;text-decoration:none;color:var(--muted)}
-main {max-width:1050px;margin:auto;padding:0 24px}
-section {padding:85px 0;border-bottom:1px solid var(--line)}
-.hero {min-height:570px;display:grid;grid-template-columns:1.2fr .8fr;
-  gap:45px;align-items:center}
-.eyebrow {font-size:12px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--accent);font-weight:bold}
-h1 {font-size:clamp(43px,7vw,76px);line-height:1.08;
-  letter-spacing:-3px;margin:20px 0}
-h2 {font-size:clamp(30px,5vw,46px);line-height:1.2;
-  letter-spacing:-1.5px}
-h1 em,h2 em {font-family:Georgia,serif;font-weight:normal}
-p {color:var(--muted)}
-.intro {font-size:18px;max-width:590px}
-.button {display:inline-block;padding:12px 18px;background:var(--ink);
-  color:white;text-decoration:none;margin:12px 12px 0 0}
-.panel {background:var(--card);border:1px solid var(--line);
-  padding:28px}
-.panel h3 {margin-top:8px}
-.math {font:52px Georgia,serif;color:var(--accent);
-  text-align:center;padding:30px 0}
-.tags {display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.tags span {border:1px solid var(--line);padding:3px 9px;
-  font-size:12px;color:var(--muted)}
-.grid {display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.project {padding:25px 0;border-top:1px solid var(--line);
-  display:grid;grid-template-columns:90px 1fr;gap:20px}
-.number {font:12px monospace;color:var(--accent)}
-footer {max-width:1050px;margin:auto;padding:30px 24px;
-  display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.small {font-size:13px}
-@media(max-width:720px) {
-  nav {align-items:flex-start;gap:15px}
-  nav div {gap:10px}
-  .hero {grid-template-columns:1fr;padding-top:55px;gap:20px}
-  section {padding:60px 0}
-  .grid {grid-template-columns:1fr}
-  .project {grid-template-columns:55px 1fr}
-}
+  :root {
+    --paper: #F2F4F3;
+    --ink: #1D2B2E;
+    --muted: #596A6C;
+    --teal: #1B4D54;
+    --teal-deep: #14383E;
+    --teal-line: rgba(27, 77, 84, 0.18);
+    --brass: #86662A;
+    --brass-light: #E3C07A;
+    --rail-text: #B9CCCA;
+    --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --sans: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(17rem, 22vw) 1fr;
+    min-height: 100vh;
+  }
+
+  /* ---------- Left rail ---------- */
+  .rail {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: var(--teal-deep);
+    color: var(--rail-text);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .portrait {
+    margin: 0;
+    width: min(100%, 13.5rem);
+    aspect-ratio: 3 / 4;
+    border-radius: 999px 999px 0 0;
+    overflow: hidden;
+    outline: 1px solid var(--brass-light);
+    outline-offset: 9px;
+    background: #0e2a2f;
+  }
+
+  .portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 24%;
+  }
+
+  .rail-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .rail-nav a {
+    display: flex;
+    align-items: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    text-decoration: none;
+    color: var(--rail-text);
+    transition: color 0.2s ease;
+  }
+
+  .rail-nav a::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 1px;
+    margin-right: 0;
+    background: var(--brass-light);
+    transition: width 0.25s ease, margin-right 0.25s ease;
+  }
+
+  .rail-nav a:hover,
+  .rail-nav a.is-current { color: var(--brass-light); }
+
+  .rail-nav a.is-current::before {
+    width: 1.3rem;
+    margin-right: 0.7rem;
+  }
+
+  /* ---------- Main column ---------- */
+  .main {
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    max-width: 66rem;
+  }
+
+  .intro {
+    min-height: min(80vh, 48rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 0 5rem;
+  }
+
+  .intro h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 6.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--teal);
+  }
+
+  .intro .affiliation {
+    margin: 1.75rem 0 0;
+    font-size: 1.125rem;
+    color: var(--muted);
+  }
+
+  .intro .creed {
+    margin: 2.75rem 0 0;
+    padding-top: 1.75rem;
+    position: relative;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.9rem;
+    line-height: 1.3;
+    color: var(--teal);
+  }
+
+  .intro .creed::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 1px;
+    background: var(--brass);
+  }
+
+  .part {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    column-gap: 2.5rem;
+    padding: 4.5rem 0;
+    border-top: 1px solid var(--teal-line);
+  }
+
+  .part h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    color: var(--teal);
+  }
+
+  .part .body {
+    max-width: 38rem;
+    min-width: 0;
+  }
+
+  .part .body p { margin: 0 0 1.25rem; }
+  .part .body p:last-child { margin-bottom: 0; }
+
+  /* Mathematical interests */
+  .domains { margin: 0; }
+
+  .domains dt {
+    font-family: var(--serif);
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .domains dd {
+    margin: 0.2rem 0 2rem;
+    color: var(--muted);
+    max-width: 31rem;
+  }
+
+  .domains dd:last-child { margin-bottom: 0; }
+
+  .lead-in { margin-bottom: 2rem; }
+
+  /* Courses */
+  .courses {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .courses li {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    column-gap: 1rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--teal-line);
+  }
+
+  .courses li:first-child { padding-top: 0; }
+  .courses li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  .courses .code {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    font-weight: 500;
+  }
+
+  .courses .title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+
+  .courses .note {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.975rem;
+    color: var(--muted);
+  }
+
+  /* Know me more */
+  .profiles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profiles li { border-bottom: 1px solid var(--teal-line); }
+  .profiles li:last-child { border-bottom: 0; }
+
+  .profiles a {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    column-gap: 1rem;
+    align-items: baseline;
+    padding: 1rem 0;
+    text-decoration: none;
+  }
+
+  .profiles .platform {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--ink);
+    transition: color 0.2s ease;
+  }
+
+  .profiles .handle {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color 0.2s ease, color 0.2s ease;
+    overflow-wrap: anywhere;
+  }
+
+  .profiles a:hover .platform { color: var(--teal); }
+  .profiles a:hover .handle {
+    color: var(--teal);
+    text-decoration-color: var(--brass);
+  }
+
+  /* Contact form */
+  .field { margin-bottom: 1.6rem; }
+
+  .field label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  .field input,
+  .field textarea {
+    display: block;
+    width: 100%;
+    padding: 0.55rem 0;
+    border: 0;
+    border-bottom: 1px solid #9DB0B0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .field textarea { resize: vertical; min-height: 8.5rem; }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--teal);
+    box-shadow: 0 1px 0 0 var(--teal);
+  }
+
+  .hidden-field { display: none; }
+
+  .send {
+    padding: 0.85rem 2.1rem;
+    border: 0;
+    border-radius: 2px;
+    background: var(--teal);
+    color: var(--paper);
+    font: inherit;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .send:hover { background: var(--teal-deep); }
+  .send:disabled { opacity: 0.65; cursor: default; }
+
+  .form-status {
+    min-height: 1.7rem;
+    margin: 1.1rem 0 0;
+    color: var(--teal);
+  }
+
+  .form-status.is-error { color: #8C3B2E; }
+
+  /* Quote */
+  .quote {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    column-gap: 2.5rem;
+    padding: 6rem 0;
+    border-top: 1px solid var(--teal-line);
+  }
+
+  .quote blockquote {
+    grid-column: 2;
+    margin: 0;
+    max-width: 38rem;
+  }
+
+  .quote p {
+    margin: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    line-height: 1.22;
+    color: var(--teal);
+  }
+
+  .quote footer {
+    margin-top: 1.5rem;
+    color: var(--brass);
+    font-weight: 500;
+  }
+
+  .quote footer::before {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    margin-right: 0.8rem;
+    vertical-align: middle;
+    background: var(--brass);
+  }
+
+  .thanks strong { font-weight: 600; }
+
+  /* One page-load moment: the introduction settles into place */
+  @media (prefers-reduced-motion: no-preference) {
+    .intro > * {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: settle 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    }
+    .intro .affiliation { animation-delay: 0.25s; }
+    .intro .creed { animation-delay: 0.5s; }
+  }
+
+  @keyframes settle {
+    to { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Narrow screens ---------- */
+  @media (max-width: 62rem) {
+    .layout { display: block; }
+
+    .rail {
+      position: static;
+      height: auto;
+      gap: 1.75rem;
+      padding: 2.75rem 1.5rem 2rem;
+    }
+
+    .rail-nav ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.25rem 1.4rem;
+    }
+
+    .rail-nav a.is-current::before { display: none; }
+
+    .intro {
+      min-height: 0;
+      padding: 4rem 0 3.5rem;
+    }
+
+    .part,
+    .quote {
+      display: block;
+      padding: 3.25rem 0;
+    }
+
+    .part h2 { margin-bottom: 1.5rem; }
+  }
+
+  @media (max-width: 30rem) {
+    .courses li { grid-template-columns: 1fr; }
+    .profiles a { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<header>
-<nav>
-  <a class="logo" href="#home">DA<span>.</span></a>
-  <div>
-    <a href="#about">About</a>
-    <a href="#interests">Interests</a>
-    <a href="#projects">Projects</a>
-    <a href="#writing">Writing</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-</header>
 
-<main>
-<section class="hero" id="home">
-  <div>
-    <p class="eyebrow">Mathematics · Computing · Research</p>
-    <h1>Curious about the <em>mathematics</em> behind things.</h1>
-    <p class="intro">
-      I'm <strong>Your Name</strong>, a first-year BS Mathematics
-      student at the Indian Institute of Technology Madras.
-      I'm exploring mathematics, scientific computing, and
-      their connections to artificial intelligence.
-    </p>
-    <a class="button" href="#projects">Explore my work ↗</a>
-    <a href="#about">About me ↓</a>
-    <p class="small">IIT Madras · Chennai, India</p>
-  </div>
-  <div class="panel">
-    <p class="eyebrow">My current learning map</p>
-    <div class="math">∑ &nbsp; ∫ &nbsp; λ</div>
-    <h3>Ideas I'm exploring</h3>
-    <p>01 — Linear algebra and mathematical proofs</p>
-    <p>02 — Probability and combinatorics</p>
-    <p>03 — Python and scientific computing</p>
-    <p>04 — Mathematical foundations of AI</p>
-  </div>
-</section>
+<div class="layout">
 
-<section id="about">
-  <p class="eyebrow">01 / About me</p>
-  <h2>Learning how to <em>think clearly.</em></h2>
-  <p class="intro">
-    I enjoy understanding ideas from first principles:
-    not only how a method works, but why it works and
-    where else it might be useful.
-  </p>
-  <p>
-    I'm beginning my academic journey in mathematics at IIT Madras.
-    Alongside my coursework, I'm building programming foundations
-    and exploring how mathematical thinking can be applied to
-    computational problems and AI.
-  </p>
-  <p>
-    This website is my evolving notebook: a place to document
-    projects, explain concepts, share useful resources, and record
-    questions worth investigating. My interests will evolve as I learn.
-  </p>
-</section>
+  <aside class="rail">
+    <figure class="portrait">
+      <img src="photo.png" alt="Portrait of Devansh Agarwal" width="720" height="1600">
+    </figure>
+    <nav class="rail-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#about">Introduction</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#semester">This semester</a></li>
+        <li><a href="#beyond">Beyond the syllabus</a></li>
+        <li><a href="#online">Know me more</a></li>
+        <li><a href="#contact">Get in touch</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<section id="interests">
-  <p class="eyebrow">02 / Research interests</p>
-  <h2>Questions worth <em>following.</em></h2>
-  <div class="grid">
-    <article class="panel">
-      <div class="math">ℝⁿ</div>
-      <h3>Mathematics</h3>
-      <p>Linear algebra, analysis, probability, combinatorics,
-      number theory, and the beauty of mathematical proofs.</p>
-      <div class="tags"><span>Proofs</span><span>Structures</span></div>
-    </article>
-    <article class="panel">
-      <div class="math">⌘</div>
-      <h3>Scientific computing</h3>
-      <p>Using code to investigate mathematical ideas, approximate
-      solutions, visualise systems, and experiment with algorithms.</p>
-      <div class="tags"><span>Python</span><span>Numerical methods</span></div>
-    </article>
-    <article class="panel">
-      <div class="math">∿</div>
-      <h3>AI and machine learning</h3>
-      <p>Exploring optimisation, probability, learning algorithms,
-      and the mathematical foundations of intelligent systems.</p>
-      <div class="tags"><span>AI</span><span>Optimisation</span></div>
-    </article>
-  </div>
-</section>
+  <main class="main">
 
-<section id="projects">
-  <p class="eyebrow">03 / Selected work</p>
-  <h2>Small steps, <em>real work.</em></h2>
-  <p>I'll add links to repositories, demonstrations, and results as
-  I complete projects.</p>
+    <header class="intro" id="about">
+      <h1>Devansh Agarwal</h1>
+      <p class="affiliation">First-year student of BS Mathematics<br>Indian Institute of Technology Madras</p>
+      <p class="creed">Mathematics is my passion.</p>
+    </header>
 
-  <article class="project">
-    <div class="number">PROJECT 01</div>
-    <div>
-      <h3>Scientific computing notebook</h3>
-      <p>A collection of computational experiments connecting
-      mathematical concepts with Python and numerical methods.</p>
-      <div class="tags"><span>Learning in progress</span><span>Python</span></div>
-    </div>
-  </article>
-  <article class="project">
-    <div class="number">PROJECT 02</div>
-    <div>
-      <h3>Visual explorations in linear algebra</h3>
-      <p>A future collection of visual explanations of vectors,
-      transformations, eigenvalues, and geometric intuition.</p>
-      <div class="tags"><span>Planned</span><span>Mathematics</span></div>
-    </div>
-  </article>
-  <article class="project">
-    <div class="number">PROJECT 03</div>
-    <div>
-      <h3>Exploring a research question</h3>
-      <p>A project to develop after reading papers, discussing ideas
-      with mentors, and identifying a focused research question.</p>
-      <div class="tags"><span>Planned</span><span>Research</span></div>
-    </div>
-  </article>
-</section>
+    <section class="part" id="interests" aria-labelledby="h-interests">
+      <h2 id="h-interests">Mathematical interests</h2>
+      <div class="body">
+        <p class="lead-in">Three areas of mathematics intrigue me most deeply.</p>
+        <dl class="domains">
+          <dt>Combinatorics</dt>
+          <dd>The study of how things can be counted, arranged and combined, and why the answers take the shape they do.</dd>
+          <dt>Probability</dt>
+          <dd>Reasoning about chance and uncertainty with the same rigour as any other branch of mathematics.</dd>
+          <dt>Linear Algebra</dt>
+          <dd>Vector spaces, linear maps and matrices, the structure that runs beneath so much of modern mathematics.</dd>
+        </dl>
+      </div>
+    </section>
 
-<section id="writing">
-  <p class="eyebrow">04 / Notes and writing</p>
-  <h2>A notebook for <em>curious minds.</em></h2>
-  <p>I'd like to write about concepts I'm learning, mathematical
-  intuition, useful resources, and the process of building things.</p>
-  <div class="panel">
-    <p>Possible first articles</p>
-    <p>→ What does a linear transformation really do?</p>
-    <p>→ From a mathematical idea to a Python experiment</p>
-    <p>→ How I'm learning to read research papers</p>
-    <p class="small">These are ideas for future articles, not published work.</p>
-  </div>
-</section>
+    <section class="part" id="semester" aria-labelledby="h-semester">
+      <h2 id="h-semester">This semester</h2>
+      <div class="body">
+        <ul class="courses">
+          <li>
+            <span class="code">MA2101</span>
+            <span class="title">Linear Algebra Via Matrices</span>
+          </li>
+          <li>
+            <span class="code">MA1100</span>
+            <span class="title">One Variable Calculus</span>
+          </li>
+          <li>
+            <span class="code">PH1010</span>
+            <span class="title">Physics</span>
+          </li>
+          <li>
+            <span class="code">MA1103</span>
+            <span>
+              <span class="title">Scientific Computing</span>
+              <span class="note">Learning MATLAB, Mathematica, Python and R</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-<section id="cv">
-  <p class="eyebrow">05 / Academic profile</p>
-  <h2>Building the <em>foundations.</em></h2>
-  <p>
-    As I gain experience, I'll add selected coursework, completed
-    projects, research experience, competitions, and achievements.
-  </p>
-  <p>You can add a link to your CV here once you have a PDF ready.</p>
-</section>
+    <section class="part" id="beyond" aria-labelledby="h-beyond">
+      <h2 id="h-beyond">Beyond the syllabus</h2>
+      <div class="body">
+        <p>Alongside my academics, I practise competitive programming, and I am currently exploring the mathematical foundations of AI.</p>
+        <p>Away from the desk, I enjoy listening to music, playing the guitar and playing cricket. Mental math is a pastime of its own, and staying up to date with current affairs is another of my passions.</p>
+      </div>
+    </section>
 
-<section id="contact">
-  <p class="eyebrow">06 / Contact</p>
-  <h2>Let's exchange <em>ideas.</em></h2>
-  <p>If you're interested in mathematics, computing, or AI,
-  I'd be happy to connect.</p>
-  <p>
-    Email: <a href="mailto:dev31agarwal@gmail.com">YOUR-EMAIL@example.com</a>
-  </p>
-  <p>
-    GitHub: <a href="https://github.com/devansh31agarwal">Your GitHub profile</a>
-  </p>
-  <p>
-    LinkedIn: <a href="https://www.linkedin.com/in/devanshagarwal31">Your LinkedIn profile</a>
-  </p>
-</section>
-</main>
+    <section class="part" id="online" aria-labelledby="h-online">
+      <h2 id="h-online">Know me more</h2>
+      <div class="body">
+        <ul class="profiles">
+          <li>
+            <a href="https://github.com/devansh31agarwal" target="_blank" rel="noopener noreferrer">
+              <span class="platform">GitHub</span>
+              <span class="handle">devansh31agarwal</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/devansh31agarwal/" target="_blank" rel="noopener noreferrer">
+              <span class="platform">LinkedIn</span>
+              <span class="handle">devansh31agarwal</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://codeforces.com/profile/codercool" target="_blank" rel="noopener noreferrer">
+              <span class="platform">Codeforces</span>
+              <span class="handle">codercool</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-<footer>
-  <a class="logo" href="#home">YN<span>.</span></a>
-  <span class="small">Made with curiosity in Chennai.</span>
-  <span class="small">© <span id="year"></span> Your Name</span>
-</footer>
+    <section class="part" id="contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Get in touch</h2>
+      <div class="body">
+        <p class="lead-in">Questions, ideas, or a conversation about mathematics are always welcome. Write to me below and your message will arrive in my inbox.</p>
+
+        <form id="contact-form" novalidate>
+          <input type="hidden" name="_subject" value="New message from your website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input class="hidden-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Your email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-message">Message</label>
+            <textarea id="f-message" name="message" required></textarea>
+          </div>
+
+          <button class="send" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="quote" aria-label="A closing thought">
+      <blockquote>
+        <p>“Genius is one per cent inspiration, ninety-nine per cent perspiration.”</p>
+        <footer>Thomas Edison</footer>
+      </blockquote>
+    </section>
+
+    <section class="part thanks" id="acknowledgement" aria-labelledby="h-thanks">
+      <h2 id="h-thanks">Acknowledgement</h2>
+      <div class="body">
+        <p>I am grateful to <strong>Professor G. Arun Kumar</strong>, Assistant Professor in the Department of Mathematics at IIT Madras, who inspired us to create our own websites on GitHub.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  (function () {
+    /* ---- Highlight the current section in the side navigation ---- */
+    var links = document.querySelectorAll('.rail-nav a');
+    var byId = {};
+    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          links.forEach(function (a) { a.classList.remove('is-current'); });
+          var link = byId[entry.target.id];
+          if (link) link.classList.add('is-current');
+        });
+      }, { rootMargin: '-35% 0px -60% 0px' });
+
+      Object.keys(byId).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+
+    /* ---- Contact form ---- */
+    var TO = 'dev31agarwal@gmail.com';
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    var button = form.querySelector('.send');
+
+    function setStatus(text, isError) {
+      status.textContent = text;
+      status.classList.toggle('is-error', !!isError);
+    }
+
+    function mailtoFallback(name, email, message) {
+      var body = message + '\n\n' + name + '\n' + email;
+      return 'mailto:' + TO +
+        '?subject=' + encodeURIComponent('Message from ' + name) +
+        '&body=' + encodeURIComponent(body);
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var name = form.elements.name.value.trim();
+      var email = form.elements.email.value.trim();
+      var message = form.elements.message.value.trim();
+
+      if (form.elements._honey.value) return;
+
+      if (!name || !email || !message) {
+        setStatus('Please fill in your name, email and message.', true);
+        return;
+      }
+      if (!form.elements.email.checkValidity()) {
+        setStatus('Please enter a valid email address so I can reply.', true);
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      setStatus('', false);
+
+      fetch('https://formsubmit.co/ajax/' + TO, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && (data.success === true || data.success === 'true')) {
+            form.reset();
+            setStatus('Thank you, ' + name + '. Your message has been sent.', false);
+          } else {
+            throw new Error('Not delivered');
+          }
+        })
+        .catch(function () {
+          status.classList.add('is-error');
+          status.textContent = 'The message could not be sent from here. ';
+          var a = document.createElement('a');
+          a.href = mailtoFallback(name, email, message);
+          a.textContent = 'Send it from your mail app instead.';
+          status.appendChild(a);
+        })
+        .then(function () {
+          button.disabled = false;
+          button.textContent = 'Send message';
+        });
+    });
+  })();
 </script>
+
 </body>
 </html>
